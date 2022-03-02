@@ -20,7 +20,7 @@ searchForSymbol("plot", "closure", env = globalenv())
 plot <- 2L
 searchForSymbol("plot", "integer", env = globalenv())
 
-#
+#Recursive version:
 
 searchForSymbol <- function(sym, t, envs=list(), cenv=NULL){
   # stopping condition
