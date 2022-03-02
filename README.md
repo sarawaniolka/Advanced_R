@@ -1,4 +1,2 @@
 # Advanced_R
-Repository for testing my Git/GitHub setup
-
-Testing from Rstudio
+Advanced R Programming - classes at SGH
