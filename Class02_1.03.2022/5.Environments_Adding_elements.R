@@ -1,6 +1,9 @@
+### Cleaning
+rm(list = ls())
+
 ### Adding elements
 ls()
-x
+x <- TRUE
 y <- 123
 ls()
 
@@ -8,11 +11,8 @@ e <- new.env()
 attr(e, "name") <- "test"
 e
 
-rm(x, y)
-ls()
-
-rm(x)
-eval(quote(x <- 2), envir = e)
+eval(quote(x <- 2), envir = e) #evaluating x=2 just in this environment, 
+#doesn't change the global x
 x
 ls(envir = e)
 e$x
@@ -23,10 +23,10 @@ e <- new.env(parent = emptyenv())
 attr(e, "name") <- "test"
 e
 parent.env(e)
-eval(quote(x <- 222), envir = e)
+eval(quote(x <- 222), envir = e) #error
 
 e$x <- 2
-e$`<-` <- `<-`
+e$`<-` <- `<-` # i have to evaluate my own arrow
 eval(quote(x), envir = e)
 ls(envir = e)
 e$x
@@ -45,11 +45,13 @@ assign(x = "z", value = 999, envir = e)
 ls(envir = e)
 e$z
 
-e["z"]
+
+#Double brackets only
+e[["z"]]
 
 get(x = "z", envir = e)
 get(x = "<-", envir = e)
 e$data.frame <- data.frame
-get(x = "data.frame", envir = e)
+get(x = "data.frame", envir = e) #definition of the function
 
 rm(e)
