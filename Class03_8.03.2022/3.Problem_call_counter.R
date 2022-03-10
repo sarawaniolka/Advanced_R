@@ -16,7 +16,7 @@ f <- function(reset=FALSE){
   if(!reset){
     # check for environment
     if ("counter" %in% search()){
-      e <- parent.env(globalenv())
+      e <- parent.env(globalenv()) #it assumes the position of the env
       e$n <- e$n + 1
       print(e$n)
     } else {
@@ -31,4 +31,5 @@ f <- function(reset=FALSE){
 }
 
 f(reset = TRUE)
-f()
+f() #works but is not great
+search()
