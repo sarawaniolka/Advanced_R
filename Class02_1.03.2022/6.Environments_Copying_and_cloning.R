@@ -18,7 +18,7 @@ eCopy
 eCopy$x
 eCopy$x <- 1
 eCopy$x
-e$x
+e$x # it changed the original one too <- bad
 
 ### Cloning an environment
 eClone <- as.environment(as.list(e))
@@ -29,5 +29,5 @@ eCopy$x
 e$x
 
 parent.env(eClone)
-parent.env(eClone) <- globalenv()
+parent.env(eClone) <- globalenv() #now there are sitting in the same position
 parent.env(eClone)
